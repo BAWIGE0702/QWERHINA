@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문구 복사 페이지</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: white; width: 90%; max-width: 400px; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        h1 { font-size: 20px; color: #1c1e21; margin-bottom: 25px; }
+        .item { padding: 20px; border: 1px solid #eee; border-radius: 10px; background-color: #fafafa; }
+        .text { display: block; margin-bottom: 15px; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5; }
+        .copy-btn { width: 100%; background-color: #007bff; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        .copy-btn:active { background-color: #0056b3; transform: scale(0.98); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>📋 문구 복사하기</h1>
+        <div class="item">
+            <span class="text" id="t1">✨✨✨ QWER 데뷔 8️⃣0️⃣0️⃣일 축하해! ✨✨✨</span>
+            <button class="copy-btn" onclick="copy('t1')">클릭하여 복사</button>
+        </div>
+    </div>
+    <script>
+        function copy(id) {
+            const txt = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(txt).then(() => {
+                alert("복사되었습니다!");
+            });
+        }
+    </script>
+</body>
+</html>

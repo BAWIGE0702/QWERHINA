@@ -9,7 +9,7 @@
         .card { background: white; width: 90%; max-width: 400px; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
         h1 { font-size: 20px; color: #1c1e21; margin-bottom: 25px; }
         .item { padding: 20px; border: 1px solid #eee; border-radius: 10px; background-color: #fafafa; }
-        .text { display: block; margin-bottom: 15px; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5; }
+        .text { display: block; margin-bottom: 15px; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5; white-space: pre-wrap; word-break: break-all; }
         .copy-btn { width: 100%; background-color: #007bff; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s; }
         .copy-btn:active { background-color: #0056b3; transform: scale(0.98); }
     </style>
@@ -18,15 +18,16 @@
     <div class="card">
         <h1>📋 문구 복사하기</h1>
         <div class="item">
-            <span class="text" id="t1">✨✨거대냥이 장나롱&#128049;생일 축하해!&#127881;✨✨</span>
+            <span class="text" id="t1">✨✨✨거대냥이 장나롱&amp;#128049;생일 축하해!&amp;#127881;✨✨✨</span>
             <button class="copy-btn" onclick="copy('t1')">클릭하여 복사</button>
         </div>
     </div>
     <script>
         function copy(id) {
-            const txt = document.getElementById(id).innerText;
+            // textContent를 사용하여 화면에 보이는 '문자열' 그대로를 가져옴
+            const txt = document.getElementById(id).textContent;
             navigator.clipboard.writeText(txt).then(() => {
-                alert("복사되었습니다!");
+                alert("코드 그대로 복사되었습니다!");
             });
         }
     </script>
